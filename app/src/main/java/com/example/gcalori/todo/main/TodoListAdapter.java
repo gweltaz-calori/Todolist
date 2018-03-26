@@ -37,7 +37,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Task task = TodoManager.getInstance().getTasksContainer().getTasks().get(position);
+        Task task = TodoManager.getInstance().getTasks().get(position);
 
         TextView textView = holder.nameTextView;
         textView.setText(task.getText());
@@ -49,19 +49,19 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return TodoManager.getInstance().getTasksContainer().getTasks().size();
+        return TodoManager.getInstance().getTasks().size();
     }
 
     public void addTask(Task task) {
-        TodoManager.getInstance().getTasksContainer().getTasks().add(task);
-        notifyItemInserted(TodoManager.getInstance().getTasksContainer().getTasks().size() - 1);
+        TodoManager.getInstance().getTasks().add(task);
+        notifyItemInserted(TodoManager.getInstance().getTasks().size() - 1);
     }
 
     public void clearTasks() {
-        final int size = TodoManager.getInstance().getTasksContainer().getTasks().size();
+        final int size = TodoManager.getInstance().getTasks().size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                TodoManager.getInstance().getTasksContainer().getTasks().remove(0);
+                TodoManager.getInstance().getTasks().remove(0);
             }
 
             notifyItemRangeRemoved(0, size);

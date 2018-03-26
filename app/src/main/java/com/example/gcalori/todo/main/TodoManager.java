@@ -14,15 +14,14 @@ public final class TodoManager {
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
     private static volatile TodoManager instance = null;
 
-    // D'autres attributs, classiques et non "static".
-    private Tasks tasksContainer = new Tasks();
+    private ArrayList<Task> tasks = new ArrayList<>();
 
-    public Tasks getTasksContainer() {
-        return tasksContainer;
+    public ArrayList<Task> getTasks() {
+        return tasks;
     }
 
-    public void setTasksContainer(Tasks tasksContainer) {
-        this.tasksContainer = tasksContainer;
+    public void setTasks(ArrayList<Task> tasks) {
+        this.tasks = tasks;
     }
 
     /**

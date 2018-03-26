@@ -15,8 +15,10 @@ import android.widget.Button;
 
 import com.example.gcalori.todo.R;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -103,7 +105,6 @@ public class ViewTodoActivity extends AppCompatActivity implements ViewTodoView,
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
                 Task task = (Task) data.getSerializableExtra("task");
@@ -116,16 +117,17 @@ public class ViewTodoActivity extends AppCompatActivity implements ViewTodoView,
     public void saveTasksToPreferences() {
         SharedPreferences preferences = getSharedPreferences("todoPref",MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        String jsonTasks = new Gson().toJson(TodoManager.getInstance().getTasksContainer());
+        String jsonTasks = new Gson().toJson(TodoManager.getInstance().getTasks());
         editor.putString("tasksContainer",jsonTasks);
         editor.apply();
     }
 
     public void loadTasksFromPreferences() {
+        Type taskTypeToken = new TypeToken<ArrayList<Task>>(){}.getType();
         SharedPreferences preferences = getSharedPreferences("todoPref",MODE_PRIVATE);
-        String jsonTasks = preferences.getString("tasksContainer","{\"tasks\":[]}");
-        Tasks tasksContainer = new Gson().fromJson(jsonTasks,Tasks.class);
-        TodoManager.getInstance().getTasksContainer().setTasks(tasksContainer.getTasks());
+        String jsonTasks = preferences.getString("tasksContainer","[]");
+        ArrayList<Task> tasks = new Gson().fromJson(jsonTasks,taskTypeToken);
+        TodoManager.getInstance().setTasks(tasks);
     }
 
 }
