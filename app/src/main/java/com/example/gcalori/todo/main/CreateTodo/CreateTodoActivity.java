@@ -1,4 +1,4 @@
-package com.example.gcalori.todo.main;
+package com.example.gcalori.todo.main.CreateTodo;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.gcalori.todo.R;
+import com.example.gcalori.todo.main.Task;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +34,7 @@ public class CreateTodoActivity extends AppCompatActivity implements CreateTodoV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todo);
+        setContentView(R.layout.activity_create_todo);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -20,7 +20,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
 
     private Context context;
 
-    TodoListAdapter(Context context)  {
+    public TodoListAdapter(Context context)  {
         this.context = context;
     }
 

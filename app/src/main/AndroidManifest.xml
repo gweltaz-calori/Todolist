@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".main.ViewTodoActivity"
+            android:name=".main.ViewTodo.ViewTodoActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -21,7 +21,7 @@
 
         </activity>
         <activity
-            android:name=".main.CreateTodoActivity"
+            android:name=".main.CreateTodo.CreateTodoActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
 

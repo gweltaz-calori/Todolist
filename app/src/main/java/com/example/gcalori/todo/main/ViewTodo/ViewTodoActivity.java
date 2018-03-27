@@ -1,4 +1,4 @@
-package com.example.gcalori.todo.main;
+package com.example.gcalori.todo.main.ViewTodo;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,15 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.gcalori.todo.R;
+import com.example.gcalori.todo.main.CreateTodo.CreateTodoActivity;
+import com.example.gcalori.todo.main.Task;
+import com.example.gcalori.todo.main.TodoListAdapter;
+import com.example.gcalori.todo.main.TodoManager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -45,7 +47,7 @@ public class ViewTodoActivity extends AppCompatActivity implements ViewTodoView,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view);
+        setContentView(R.layout.activity_view_todo);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
